@@ -17,7 +17,6 @@ RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
 RUN     rm /etc/dpkg/dpkg.cfg.d/excludes \
      && DEBIAN_FRONTEND=noninteractive apt-get update -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get install -yq man \
-                                                           manpages \
                                                            less \
      && DEBIAN_FRONTEND=noninteractive apt-get autoremove -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get autoclean -yq \
