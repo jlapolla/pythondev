@@ -94,7 +94,7 @@ WORKDIR /home/user
 
 # Copy dotfiles
 
-COPY --chown=user:user .bashrc-custom .vimrc /home/user/
+COPY --chown=user:user .bashrc-custom .gitconfig .gitignore_global .vimrc /home/user/
 RUN     printf "\n%s\n" "test -s ~/.bashrc-custom && source ~/.bashrc-custom" 1>>.bashrc \
      && git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim \
      && vim -c PluginInstall -c qall 1>/dev/null 2>&1
