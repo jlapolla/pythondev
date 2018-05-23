@@ -14,7 +14,5 @@
 	tool = vimdiff
 [push]
 	default = simple
-[pretty]
-	nice = %h %s
 [alias]
-	lograph = log --graph --pretty=nice
+	lograph = log --graph --date=short --pretty='%h %cd %s <%ae>'
