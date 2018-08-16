@@ -1,7 +1,9 @@
 FROM ubuntu@sha256:c8c275751219dadad8fa56b3ac41ca6cb22219ff117ca98fe82b42f24e1ba64e
 
-# Setup apt
-#
+###
+### Setup apt
+###
+
 # Need apt-utils and software-properties-common to use add-apt-repository
 # to add PPA repositories.
 
@@ -12,7 +14,9 @@ RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get autoclean -yq \
      && rm -rf /var/lib/apt/lists/*
 
-# Enable man pages
+###
+### Enable man pages
+###
 
 RUN     rm /etc/dpkg/dpkg.cfg.d/excludes \
      && DEBIAN_FRONTEND=noninteractive apt-get update -yq \
@@ -22,7 +26,9 @@ RUN     rm /etc/dpkg/dpkg.cfg.d/excludes \
      && DEBIAN_FRONTEND=noninteractive apt-get autoclean -yq \
      && rm -rf /var/lib/apt/lists/*
 
-# Add developer tools
+###
+### Add developer tools
+###
 
 RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get install -yq git \
@@ -32,14 +38,18 @@ RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get autoclean -yq \
      && rm -rf /var/lib/apt/lists/*
 
-# Add deadsnakes PPA
+###
+### Add deadsnakes PPA
+###
 
 RUN     DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:deadsnakes/ppa \
      && DEBIAN_FRONTEND=noninteractive apt-get autoremove -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get autoclean -yq \
      && rm -rf /var/lib/apt/lists/*
 
-# Add pythons
+###
+### Add pythons
+###
 
 RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get install -yq python3.6 \
@@ -58,8 +68,10 @@ RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get autoclean -yq \
      && rm -rf /var/lib/apt/lists/*
 
-# Add virtual environment for tox
-#
+###
+### Add virtual environment for tox
+###
+
 # Create python virtual environment for latest version of python, and
 # install tox. We don't need virtual environments for other pythons we
 # wish to test because tox will create the virtual environments for us.
@@ -77,8 +89,10 @@ RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
      && pip install --no-cache -U pip \
      && pip install --no-cache tox
 
-# Create user
-#
+###
+### Create user
+###
+
 # To ensure your container user has the same uid as your host user, invoke
 # `docker build` as:
 #
@@ -92,7 +106,9 @@ RUN adduser --uid ${uid} --disabled-password --gecos "" user
 USER user:user
 WORKDIR /home/user
 
-# Copy dotfiles
+###
+### Personalization
+###
 
 COPY --chown=user:user .bashrc-custom .gitconfig .gitignore_global .vimrc /home/user/
 RUN     printf "\n%s\n" "test -s ~/.bashrc-custom && source ~/.bashrc-custom" 1>>.bashrc \
