@@ -52,7 +52,9 @@ RUN     DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:deadsnakes/ppa \
 ###
 
 RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
-     && DEBIAN_FRONTEND=noninteractive apt-get install -yq python3.6 \
+     && DEBIAN_FRONTEND=noninteractive apt-get install -yq python3.7 \
+                                                           python3.7-dev \
+                                                           python3.6 \
                                                            python3.6-dev \
                                                            python3.5 \
                                                            python3.5-dev \

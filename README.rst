@@ -6,12 +6,13 @@ This is the Docker image I use for Python development (or, rather, the
 Dockerfile I use to generate the Docker image). It provides a development
 environment for the following Python versions:
 
-- Python 2.6
-- Python 2.7
-- Python 3.3
-- Python 3.4
-- Python 3.5
+- Python 3.7
 - Python 3.6
+- Python 3.5
+- Python 3.4
+- Python 3.3
+- Python 2.7
+- Python 2.6
 
 Having all these Python versions available in one Docker container is handy if
 you're testing with a tool like ``tox`` and you have to support a myriad of
