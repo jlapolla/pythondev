@@ -21,12 +21,12 @@ Python versions.
 Build with::
 
   # bash
-  sudo docker build --build-arg uid=$(id -u) -t jlapolla/pythondev:multi contexts/multi
+  sudo docker build --build-arg uid=$(id -u) -t jlapolla/pythondev:latest contexts/multi
 
 Run with::
 
   # bash
-  sudo docker run -it --mount type=bind,src=$HOME,dst=/host --rm jlapolla/pythondev:multi
+  sudo docker run -it --mount type=bind,src=$HOME,dst=/host --rm jlapolla/pythondev:latest
 
 This starts the Docker container with your home directory mounted at ``/host``
 within the container. Once you're in the Docker container you can do whatever
