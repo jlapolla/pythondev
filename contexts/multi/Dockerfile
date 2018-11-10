@@ -82,12 +82,12 @@ RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
 
 RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get install -yq python3-venv \
-                                                           python3.6-venv \
+                                                           python3.7-venv \
      && DEBIAN_FRONTEND=noninteractive apt-get autoremove -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get autoclean -yq \
      && rm -rf /var/lib/apt/lists/* \
-     && python3.6 -m venv --system-site-packages /venv/py36 \
-     && . /venv/py36/bin/activate \
+     && python3.7 -m venv --system-site-packages /venv/py37 \
+     && . /venv/py37/bin/activate \
      && pip install --no-cache -U pip \
      && pip install --no-cache tox
 
