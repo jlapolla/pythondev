@@ -1,0 +1,14 @@
+# Readline initialization file.
+
+# References:
+#
+# General information about .inputrc:
+# info '(readline)Readline Init File'
+#
+# Displaying current readline bindings in Bash
+# man 1 bash # See the `bind' builtin
+#
+# Swapping editing modes and keymaps:
+# https://unix.stackexchange.com/a/303480
+
+set editing-mode vi
