@@ -11,4 +11,18 @@
 # Swapping editing modes and keymaps:
 # https://unix.stackexchange.com/a/303480
 
+# Use vi editing mode.
 set editing-mode vi
+
+# Edit vi-command keymap.
+set keymap vi-command
+"\C-x\C-r": re-read-init-file
+"\C-l": clear-screen
+"gg": beginning-of-history
+"^": beginning-of-line
+"G": end-of-history
+
+# Edit vi-insert keymap.
+set keymap vi-command
+"\C-x\C-r": re-read-init-file
+"\C-l": clear-screen
