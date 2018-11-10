@@ -65,7 +65,7 @@ au FileType markdown setlocal textwidth=72
 au FileType coq setlocal tabstop=8
 
 " Python
-au Filetype py setlocal shiftwidth=4 softtabstop=4
+au Filetype python setlocal shiftwidth=4 softtabstop=4 foldmethod=indent
 
 " Java
 au Filetype java setlocal shiftwidth=4 softtabstop=4
