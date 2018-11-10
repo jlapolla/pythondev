@@ -112,8 +112,14 @@ WORKDIR /home/user
 ### Personalization
 ###
 
-COPY --chown=user:user .bashrc_custom .config .gitconfig .gitignore_global \
-     .inputrc .vimrc /home/user/
-RUN     printf "\n%s\n" "test -s ~/.bashrc_custom && source ~/.bashrc_custom" 1>>.bashrc \
-     && git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim \
+# Vim plugins.
+COPY --chown=user:user .vimrc /home/user/
+RUN     git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim \
      && vim -c PluginInstall -c qall 1>/dev/null 2>&1
+
+# All other dotfiles. These are copied after installing Vim plugins, so that a
+# change to one of these dotfiles does not force the Vim plugins to be
+# reinstalled.
+COPY --chown=user:user .bashrc_custom .config .gitconfig .gitignore_global \
+     .inputrc /home/user/
+RUN     printf "\n%s\n" "test -s ~/.bashrc_custom && source ~/.bashrc_custom" 1>>.bashrc
