@@ -83,6 +83,7 @@ RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
 RUN     DEBIAN_FRONTEND=noninteractive apt-get update -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get install -yq python3-venv \
                                                            python3.7-venv \
+                                                           python3-tk \
      && DEBIAN_FRONTEND=noninteractive apt-get autoremove -yq \
      && DEBIAN_FRONTEND=noninteractive apt-get autoclean -yq \
      && rm -rf /var/lib/apt/lists/* \

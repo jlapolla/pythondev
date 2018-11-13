@@ -36,7 +36,6 @@ permissions are correct, and you have a seamless experience working in the
 Docker container. It's basically like spawning a subshell that has a bunch of
 Python versions installed and some handy development tools.
 
-===============
 Personalization
 ===============
 
@@ -48,3 +47,11 @@ development environment.
 
 All personalization happens in the ``### Personalization`` section at the end of
 the Dockerfile, so it should be pretty easy to edit.
+
+X11
+===
+
+Add the following command line options to the ``docker run`` line to support
+X11 in the docker container::
+  
+  sudo docker run ... --mount type=bind,src=/tmp/.X11-unix,dst=/tmp/.X11-unix --env DISPLAY=$DISPLAY ...
