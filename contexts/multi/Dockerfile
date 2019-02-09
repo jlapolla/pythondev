@@ -121,8 +121,8 @@ RUN     git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle
 # All other dotfiles. These are copied after installing Vim plugins, so that a
 # change to one of these dotfiles does not force the Vim plugins to be
 # reinstalled.
-COPY --chown=user:user .bashrc_custom .gitconfig .gitignore_global .inputrc \
-     /home/user/
+COPY --chown=user:user .bashrc_custom .gitconfig .gitignore_global .infokey \
+     .inputrc /home/user/
 # Have to copy .config separately since it is a directory.
 COPY --chown=user:user .config /home/user/.config
 RUN     printf "\n%s\n" "test -s ~/.bashrc_custom && source ~/.bashrc_custom" 1>>.bashrc
