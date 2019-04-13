@@ -32,10 +32,15 @@ set softtabstop=2
 set smartindent
 set foldmethod=syntax
 
-" Text column settings.
+" Highlight 80th and 120th column
 " https://stackoverflow.com/a/13731714
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermbg=233 guibg=#121212
 let &colorcolumn="80,".join(range(120,999),",")
+
+" Highlight tabs and trailing whitespace
+" https://stackoverflow.com/a/4617156
+highlight ExtraWhitespace ctermbg=235 guibg=#262626
+match ExtraWhitespace /\s\+$\|\t/
 
 " Other settings.
 set textwidth=0
