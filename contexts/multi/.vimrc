@@ -32,10 +32,10 @@ set softtabstop=2
 set smartindent
 set foldmethod=syntax
 
-" Highlight column 81 and columns after 121
+" Highlight column 81
 " https://stackoverflow.com/a/13731714
 highlight ColorColumn ctermbg=233 guibg=#121212
-let &colorcolumn="81,".join(range(121,999),",")
+let &colorcolumn="81"
 
 " Highlight tabs and trailing whitespace
 " https://stackoverflow.com/a/4617156
