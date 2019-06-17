@@ -42,6 +42,10 @@ let &colorcolumn="81"
 " https://stackoverflow.com/a/4617156
 highlight ExtraWhitespace ctermbg=235 guibg=#262626
 match ExtraWhitespace /\s\+$\|\t/
+" For some reason, we have to add an explicit autocmd to match extra
+" whitespace when we create a new window. I haven't heard of anyone else
+" encountering this problem.
+au WinNew * match ExtraWhitespace /\s\+$\|\t/
 
 " Other settings.
 set textwidth=0
