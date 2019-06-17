@@ -14,6 +14,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Start Vundle plugin list.
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'AndrewRadev/linediff.vim'
 Plugin 'Konfekt/FastFold'
 " End Vundle plugin list.
 call vundle#end()
