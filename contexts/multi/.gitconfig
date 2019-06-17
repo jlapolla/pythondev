@@ -16,3 +16,5 @@
 	default = simple
 [alias]
 	lograph = log --graph --date=short --pretty='%h %cd %s <%ae>'
+[color "branch"]
+	upstream = cyan
